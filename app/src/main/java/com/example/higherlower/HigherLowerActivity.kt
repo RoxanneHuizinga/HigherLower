@@ -16,18 +16,18 @@ class HigherLowerActivity : AppCompatActivity() {
         initViews()
     }
 
-    /**
-     * Set the initial (UI) state of the game.
-     */
+
+    // Set the UI
+
     private fun initViews() {
         btnHigher.setOnClickListener { onHigherClick() }
         btnLower.setOnClickListener { onLowerClick() }
         btnEqual.setOnClickListener { onEqualClick() }
         updateUI()
     }
-    /**
-     * Update the last throw text and the dice image resource drawable with the current throw.
-     */
+
+    //  Update the last throw text and the dice image resource drawable with the current throw.
+
     private fun updateUI() {
         tvLastThrow.text = getString(R.string.last_throw, lastThrow)
 
@@ -42,10 +42,8 @@ class HigherLowerActivity : AppCompatActivity() {
     }
 
 
-    /**
-     * Replaces the previous dice value with the current one and replaces the current dice with a new dice
-     * with a random number between 1 and 6 (inclusive).
-     */
+   //     * Replaces the previous dice value with the current one and replaces the current dice with a new dice
+
     private fun rollDice() {
         lastThrow = currentThrow
         currentThrow = (1..6).random()
@@ -59,9 +57,8 @@ class HigherLowerActivity : AppCompatActivity() {
         else onAnswerIncorrect()
     }
 
-    /**
-     * Calls [rollDice] and checks if the answer is correct.
-     */
+    //     Calls [rollDice] and checks if the answer is correct.
+
     private fun onLowerClick() {
         rollDice()
 
@@ -69,9 +66,9 @@ class HigherLowerActivity : AppCompatActivity() {
         else onAnswerIncorrect()
     }
 
-    /**
-     * Calls [rollDice] and checks if the answer is correct.
-     */
+
+    // Calls [rollDice] and checks if the answer is correct.
+
     private fun onEqualClick() {
         rollDice()
 
@@ -79,16 +76,14 @@ class HigherLowerActivity : AppCompatActivity() {
         else onAnswerIncorrect()
     }
 
-    /**
-     * Displays a successful Toast message.
-     */
+    // Display good Toast message.
+
     private fun onAnswerCorrect() {
         Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
     }
 
-    /**
-     * Displays a incorrect Toast message.
-     */
+   // Displays a incorrect Toast message.
+
     private fun onAnswerIncorrect() {
         Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
     }
